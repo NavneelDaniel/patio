@@ -1,0 +1,16 @@
+<div class='SignIn_Main'>
+<h1 style='margin-top:200px;color: #fed136'> Create new menu category </h1>
+<section class = 'SignIn_Section'>
+
+    <%= form_with url: "/admin/c_new" do |form| %>
+
+      <div class = "SignIn_Div">
+        <%= form.text_field :category_name, class: 'SignUp_Input', placeholder: "Category Name" %>
+      </div>
+
+      <%= form.submit value: "Create Category", class: "Button" %>
+
+    <% end %>
+  </section>
+
+</div>

@@ -1,0 +1,23 @@
+<div class='SignIn_Main'>
+<h1 class='SignIn_Title'> Welcome!</h1>
+<p class= 'SignIn_Subtitle'>Our famous dishes are only a click away!</p>
+<section class = 'SignIn_Section'>
+
+  <%= form_with url: users_path do |form| %>
+    <div class = "SignIn_Div">
+      <%= form.text_field :name, class: 'SignUp_Input', placeholder: "Full Name" %>
+    </div>
+
+   <div class = "SignIn_Div">
+      <%= form.email_field :email, class:'SignUp_Input', placeholder: "Email"%>
+    </div>
+
+   <div class = "SignIn_Div">
+      <%= form.password_field :password, class:'SignUp_Input', placeholder: "Password"%>
+    </div>
+
+    <%= form.submit value: "Sign-Up!", class: "Button" %>
+
+  <% end %>
+</section>
+</div>

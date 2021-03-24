@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+  </head>
+    <main class='MenuMain'>
+
+          <h1 class='MenuPage-Title'>
+          <br/>
+            MENU
+          </h1>
+
+        <div class = 'Body_Menu_and_Cart'>
+            <div>
+              <% menu_category_ids  = MenuCategory.getCategory_Ids.sort() %>
+              <%for category_id in menu_category_ids%>
+
+                  <%= render "menu/menu-section" %>
+
+              <%end %>
+            </div>
+
+            <%= render partial: "/cart/cart-section",
+            locals:{
+              current_user_id: session[:current_user_id]
+
+            }%>
+
+        </div>
+    </main>
+  </body>
+</html>

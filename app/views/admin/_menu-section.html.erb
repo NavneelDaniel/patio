@@ -1,0 +1,42 @@
+<% menu_category = MenuCategory.find(category_id) %>
+
+<section class='TodoSection'>
+
+  <div class='TodoHeader'><head>
+    <% menu_items = MenuItem.getCategory_Items(category_id)%>
+
+    <h2 class='TodoSection-title'> <%= menu_category.category_name %></h2>
+  </div>
+
+  <ul class= 'Todo_List'>
+
+    <% for menu_item in menu_items %>
+
+        <div style = "display:flex; align-items:baseline">
+
+            <%= form_with(url: "/admin/i/#{menu_item.id}", method: 'put') do %>
+
+              <input type="checkbox" <%= MenuItem.enabled?(menu_item.id) ? "checked" : ""%>
+              class="MarkTodo" name="completed" style='margin-right:20px'
+              onclick="this.form.submit()">
+
+            <%end%>
+
+            <div style = 'display:flex; align-items: center'>
+              <div class='Todo_Div' >
+                <p class='TodoItem-todo'> <%= menu_item.name%> </p>
+                <li > <i><%= menu_item.description%></i></li>
+              </div>
+
+                <%= form_with(url: "/admin/i/#{menu_item.id}" , method: "delete") do %>
+                    <input type = 'image' src='trashcan.svg' >
+
+                <%end%>
+              </div>
+          </div>
+
+
+
+      <%end%>
+    </ul>
+  </section>

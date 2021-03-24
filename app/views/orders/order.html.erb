@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content= "width=device-width, initial-scale=1.0" >
+    <title>User Orders</title>
+  </head>
+    <main class='MenuMain'>
+
+        <h1 class='MenuPage-Title'>
+          <%= User.find(session[:current_user_id]).name%>'s Orders
+      </h1>
+
+        <div class = 'Body_Menu_and_Cart' style='margin-left:500px'>
+          <% if @user_orders != [] %>
+            <div>
+              <%for user_order in @user_orders%>
+                <div style = 'margin-top:30px'>
+                  <h5 style = 'color:#fed136'>Order ID: <%= user_order.id %></h5>
+
+                  <%= render partial: "/orders/order-section",
+                      locals:{
+                        user_order: user_order
+                      }%>
+                  <h5 style='margin-left:40px'> Order Total: <%= user_order.total_sale%></h5>
+                </div>
+              <%end %>
+            </div>
+          <%else%>
+          <h3> <%= @user_orders.to_a%> </h3>
+            <%# <h3> No orders made yet!. </h3> %>
+          <%end%>
+        </div>
+    </main>
+  </body>
+</html>

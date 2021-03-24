@@ -1,0 +1,18 @@
+<% order_items = user_order.get_order_items %>
+  <div style = 'display:blox'>
+    <section class='CartSection'>
+      <ul>
+        <% for order_item in order_items %>
+
+          <div class='CartItem' style = 'grid'>
+                <h6><%= order_item.menu_item_name%></h6>
+                <div style='display:flex;align-items:center'>
+                  <p> Price:<%= order_item.price%> </p>
+                  <p style = 'margin-left:20px'> Quantity : <%= order_item.quantity%></p>
+                </div>
+          </div>
+
+        <%end%>
+      </ul>
+    </section>
+  </div>

@@ -1,0 +1,117 @@
+body{
+  margin : auto;
+  background-color: f5f5f5f;
+  padding-top: 50px;
+  font-family: Trebuchet;
+  display:grid;
+  align-items: center;
+}
+
+.MenuMain{
+  display: grid;
+}
+
+.MenuPage-Title{
+  font-size:   50px;
+  font-weight: 600px;
+  line-height: 1.8;
+  padding-top: 25px;
+  margin: auto;
+  color: #fed136;
+
+
+}
+
+.Body_Menu_and_Cart{
+  display:flex;
+  align-items:right;
+  margin:auto;
+}
+
+.MenuSection{
+
+  max-width: 30px;
+  border-width: 100px;
+  min-width: 800px;
+
+
+}
+
+
+.MenuSection-title{
+  font-size: 30px;
+  line-height: 1.4;
+  margin-bottom: 10px;
+
+}
+
+
+.MenuItem{
+display:flex;
+align-items: baseline;
+
+
+}
+
+.MenuItem-Details{
+
+}
+
+.MenuPage-Inputs{
+
+
+  padding-left: 20px;
+  padding-bottom: 32px;
+}
+
+.CartSection{
+
+}
+article{
+  display:table;
+  padding-top: 20px;
+
+}
+
+h3{
+  font-size: 24px;
+  line-height: 1.4;
+
+}
+
+.MenuHeader{
+  display:flex;
+}
+
+.Fraction_Complete{
+  line-height: 1.4;
+  padding-top: 20px;
+  padding-left: 20px;
+
+}
+
+.Menu_List{
+  list-style-type: None;
+  line-height: 1.5;
+  display:inline;
+}
+
+.Menu_Div{
+  /* display:
+
+  ; */
+  align-items: center;
+}
+
+.CartSection_heading{
+  color: #fed136;
+  font-size: 40px;
+}
+
+.signout-item{
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 0.95rem;
+  color: #fff;
+  letter-spacing: 0.0625em;
+  margin-top: 50px;
+}

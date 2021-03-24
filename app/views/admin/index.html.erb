@@ -1,0 +1,43 @@
+  <head><title>Admin Menu</title>
+  </head>
+    <main class='TodoPageMain'>
+
+        <div style = "display:flex;margin-top:100px">
+          <h1 style = 'margin-bottom:50px'> Admin Menu Control </h1>
+
+          <p style = 'margin-left:50px'>
+          </p>
+        </div>
+
+        <% menu_category_ids  = MenuCategory.getCategory_Ids.sort() %>
+        <%for category_id in menu_category_ids%>
+
+            <div style = "display:flex; align-items:baseline">
+
+            <%= form_with(url: "/admin/c/#{category_id}", method: 'put') do %>
+
+              <input type="checkbox" <%= MenuCategory.enabled?(category_id) ? "checked" : ""%>
+              class="MarkTodo" name="completed" style='margin-right:20px'
+              onclick="this.form.submit()">
+
+            <%end%>
+
+            <%= render partial: "admin/menu-section",
+              locals:{
+                category_id: category_id
+              }%>
+
+              <%= form_with(url: "/admin/i_new/#{category_id}" , method: "get") do %>
+                <input type = 'image' src='plus_sign.svg' , style="width:20px;margin-left:30px;margin-right:20px">
+              <%end%>
+
+              <%= form_with(url: "/admin/c/#{category_id}" , method: "delete") do %>
+                <input type = 'image' src='trashcan.svg' >
+              <%end%>
+            </div>
+        <%end %>
+
+      </main>
+     <a href="/admin/c_new" style='margin-left:20px;color:white' ><b><u> + Add New Category</b></u></a>
+  </body>
+</html>

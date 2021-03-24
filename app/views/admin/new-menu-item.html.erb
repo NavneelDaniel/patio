@@ -1,0 +1,28 @@
+<div class='SignIn_Main'>
+<h1 style='margin-top:200px;color: #fed136'> Create new menu item </h1>
+<%# <p class= 'SignIn_Subtitle'>Our famous dishes are only a click away!</p> %>
+<h6> Category:<%= @category.category_name %> </h6>
+  <section class = 'SignIn_Section'>
+
+    <%= form_with url: "/admin/i_new/:id" do |form| %>
+
+      <div class = "SignIn_Div">
+        <%= form.text_field :name, class: 'SignUp_Input', placeholder: "Item name" %>
+      </div>
+
+      <div class = "SignIn_Div">
+          <%= form.number_field :price, class:'SignUp_Input', placeholder: "Price"%>
+      </div>
+
+      <div class = "SignIn_Div">
+          <%= form.text_field :description, class:'SignUp_Input', placeholder: "Description", size: 50%>
+      </div>
+
+      <%= form.hidden_field :menu_categry_id, :value => @category.id %>
+
+      <%= form.submit value: "Create Item", class: "Button" %>
+
+    <% end %>
+  </section>
+
+</div>

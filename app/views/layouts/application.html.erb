@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Navneel App</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  </head>
+
+  <body >
+   <nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-shrink" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand js-scroll-trigger" href="/">THE PATIO</a>
+
+                <% if session[:current_user_id]%>
+                  <div class="collapse navbar-collapse" id="navbarResponsive">
+                      <ul class="navbar-nav text-uppercase ml-auto">
+                          <li class="nav-item"><a class="nav-link js-scroll-trigger active" href="/menu">Menu</a></li>
+
+                          <%= form_with(url: "/orders/" , method: "get") do %>
+                            <input type="hidden" name="name" value="value" />
+                            <a style='margin-right:20px' class="signout-item" class="nav-link js-scroll-trigger" onclick="this.parentNode.submit();">Orders</a>
+                          <%end%>
+
+                          <%= form_with(url: "/signout" , method: "delete") do %>
+                            <input type="hidden" name="name" value="value" />
+                            <a class="signout-item" class="nav-link js-scroll-trigger" onclick="this.parentNode.submit();">Sign Out</a>
+                          <%end%>
+                  <%end%>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+      <% if flash[:error] %>
+      <p class = 'Flash_Error'>
+        <%= flash[:error] %>
+      </p>
+    <% end %>
+
+    <% if flash[:message] %>
+    <p class = 'Flash_Message'>
+      <%= flash[:message] %>
+      </p>
+    <% end %>
+
+
+    <%= yield %>
+  </body>
+</html>

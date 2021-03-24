@@ -1,0 +1,18 @@
+
+.SignUp_Section{
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.SignUp_SubmitButton{
+  margin-top: 30px;
+  padding: 10px;
+  background-color: #b5b5b5;
+  border:none;
+  border-radius: 5px;
+}
+
+.SignUp_div{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

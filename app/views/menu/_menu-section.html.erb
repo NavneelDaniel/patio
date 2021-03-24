@@ -1,0 +1,51 @@
+<% menu_category = MenuCategory.find(category_id) %>
+<% if menu_category.enabled %>
+
+<section class='MenuSection'>
+
+  <div class='MenuHeader'><head>
+    <% menu_items = MenuItem.getCategory_Items(category_id)%>
+
+    <h2 class='MenuSection-title'> <%= menu_category.category_name %></h2>
+  </div>
+
+    <ul>
+    <% for menu_item in menu_items %>
+
+        <li style = 'list-style-type: circle;' ><% if menu_item.enabled%>
+
+          <div class='MenuItem'>
+            <div class='MenuItem-Details' >
+              <div style='display:flex;align-items:center'>
+                <p style='font-size:20px;font-weight:1000'><%= menu_item.name%></p>
+                <p style='margin-left:50px'>₹<%= menu_item.price %> </p>
+              </div>
+              <p > <i><%= menu_item.description%></i></p
+              >
+            </div>
+
+            <div class='MenuItem_Buttons'>
+              <%if Cart.item_present(menu_item.id, session[:current_user_id])%>
+
+                <%= form_with(url: "/cart/a/#{menu_item.id}" , method: "put") do %>
+                  <input type = 'image' src='plus_sign.svg' style="width:20px;margin-left:30px;" >
+                <%end%>
+
+                <%= form_with(url: "/cart/s/#{menu_item.id}" , method: "put") do %>
+                  <input type = 'image' src='minus_sign.png' style="width:20px;margin-left:30px;" >
+                <%end%>
+
+              <%else%>
+                <%= form_with(url: "/cart/#{menu_item.id}" , method: "post") do %>
+                  <input type = 'image' src='plus_sign.svg' style="width:20px;margin-left:30px;" >
+
+                <%end%>
+              <%end%>
+            </div>
+          </div>
+        </li>
+        <%end%>
+      <%end%>
+    </ul>
+  </section>
+<% end %>

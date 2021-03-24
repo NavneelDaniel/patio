@@ -1,0 +1,29 @@
+<% cart_items = Cart.where(user_id: current_user_id) %>
+<% if cart_items != []%>
+  <div style = 'display:blox'>
+    <h1 class = 'CartSection_heading' > Items in Cart:</h1>
+    <section class='CartSection'>
+      <ul>
+        <% for cart_item in cart_items %>
+
+          <div class='CartItem' style = 'grid'>
+                <h4><%= cart_item.menu_item_name%></h4>
+                <div style='display:flex;align-items:center'>
+                <p> Price: ₹<%= cart_item.price%> </p>
+                <p style = 'margin-left:20px'> Quantity : <%= cart_item.quantity%></p>
+                </div>
+                <p> Item Price: ₹<%= cart_item.price * cart_item.quantity%></p>
+          </div>
+
+        <%end%>
+            <p style='margin:auto'>-x-<p>
+            <p><b> Cart Total: ₹</b><%= Cart.calculate_total(current_user_id) %></p>
+
+      </ul>
+
+      <%= form_with(url: "/cart/ch/#{current_user_id}" , method: "post") do %>
+        <input type = 'image' src='shop_cart.svg' style="width:20px;margin-left:40px;" >
+      <%end%>
+    </section>
+  </div>
+<% end %>
